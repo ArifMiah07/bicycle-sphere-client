@@ -1,0 +1,38 @@
+.swiper {
+  max-width: 100%;
+  padding: 35px 0;
+  position: relative;
+}
+
+.swiper-slide {
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide-active > div {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+  z-index: 2;
+}
+
+.swiper-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.swiper-pagination-bullet {
+  background: gray;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: white;
+  border: 2px solid cyan;
+  width: 10px;
+  height: 10px;
+}
