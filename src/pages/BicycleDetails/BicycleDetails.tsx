@@ -2,7 +2,17 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, Heart, Share2, Minus, Plus, Truck, Shield, RotateCcw } from 'lucide-react';
+import {
+  ChevronLeft,
+  Heart,
+  Share2,
+  Minus,
+  Plus,
+  Truck,
+  Shield,
+  RotateCcw,
+  ShoppingCart,
+} from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -11,6 +21,8 @@ import { useState } from 'react';
 import { Bicycle } from '@/types';
 import { useGetAllBicycleQuery, useGetSingleBicycleQuery } from '@/redux/api/productApi';
 import BuyNow from './BuyNow';
+import { useAppDispatch, useAppSelector } from '@/redux/hook';
+import { addToCart } from '@/redux/features/cart/cartSlice';
 
 export default function BicycleDetails() {
   const { id } = useParams<{ id: string }>();
@@ -20,15 +32,28 @@ export default function BicycleDetails() {
   // console.log('i from ', bicycles?.data);
   // console.log('data', data);
 
+    const dispatch = useAppDispatch();
+  const cartItems = useAppSelector(state => state.cart.items); 
+  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  // Increment the quantity
   const incrementQuantity = () => {
     if (bike && quantity < bike.quantity) {
-      setQuantity(quantity + 1);
+      setQuantity(prevQuantity => prevQuantity + 1);
     }
   };
 
+  // Decrement the quantity
   const decrementQuantity = () => {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
+      setQuantity(prevQuantity => prevQuantity - 1); 
+    }
+  };
+
+  // Add the bicycle to the cart
+  const addToCartHandler = () => {
+    if (bike) {
+      dispatch(addToCart({ ...bike, quantity })); 
     }
   };
 
@@ -145,6 +170,10 @@ export default function BicycleDetails() {
                   <Share2 className="h-5 w-5" />
                 </Button>
               </div>
+              <div className="mb-1 text-base text-yellow-400">
+                {'★'.repeat(bike.rating ?? 4)}
+                {'☆'.repeat(5 - (bike.rating ?? 4))}
+              </div>
             </div>
 
             <div className="mt-2 flex items-center">
@@ -153,6 +182,9 @@ export default function BicycleDetails() {
               </Badge>
               <Badge variant="outline" className="rounded-md">
                 {bike.type}
+              </Badge>
+              <Badge variant="outline" className="rounded-md">
+              <span>Avg Rating: {'4.5'}</span>
               </Badge>
             </div>
 
@@ -220,10 +252,10 @@ export default function BicycleDetails() {
 
             {/* Add to Cart <| important */}
             <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-2">
-              {/* <Button className="flex-1" disabled={!bike.inStock}>
+              <Button className="flex-1"  onClick={addToCartHandler} disabled={!bike.inStock}>
                 <ShoppingCart className="mr-2 h-4 w-4" />
                 Add to Cart
-              </Button> */}
+              </Button>
               <BuyNow
                 inStock={!bike.inStock}
                 productId={bike._id}

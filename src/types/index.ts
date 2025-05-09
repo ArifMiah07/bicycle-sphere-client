@@ -24,6 +24,7 @@ export type BicycleCategory =
   | 'Budget';
 export interface Bicycle {
   _id?: string;
+  rating?: number;
   name: string;
   brand: string;
   model: string;

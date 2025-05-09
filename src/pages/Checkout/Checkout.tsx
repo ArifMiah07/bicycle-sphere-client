@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { useGetSingleBicycleQuery } from '@/redux/api/productApi';
 import { Bicycle, TOrder } from '@/types';
 import { toast } from 'react-toastify';
+import { useAppSelector } from '@/redux/hook';
 
 const Checkout = () => {
   const location = useLocation();
@@ -12,6 +13,10 @@ const Checkout = () => {
 
   const { data, isLoading } = useGetSingleBicycleQuery(orderedProductId);
   const orderedProductData: Bicycle = data?.data;
+
+ const cartItems = useAppSelector(state => state.cart.items); 
+  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
   // console.log(orderedProductData);
   if (!order) {
     return <p className="p-6 mt-24 h-full">No order found. Please try again.</p>;
@@ -38,7 +43,7 @@ const Checkout = () => {
           <strong>Email:</strong> {order.email}
         </p>
         <p>
-          <strong>Quantity:</strong> {order.quantity}
+          <strong>Quantity:</strong> {totalQuantity}
         </p>
         <p>
           <strong>Price:</strong> ${order.totalPrice}

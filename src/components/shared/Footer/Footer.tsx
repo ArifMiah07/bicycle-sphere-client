@@ -14,31 +14,31 @@ const Footer = () => {
                 Product
               </p>
               <Link
-                to="/"
+                to="/shop"
                 className="mb-3 flex text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2"
               >
                 Road Bike
               </Link>
               <Link
-                to="/"
+                to="/shop"
                 className="mb-3 flex text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2"
               >
                 Mountain Bike (MTB)
               </Link>
               <Link
-                to="/"
+                to="/shop"
                 className="mb-3 flex text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2"
               >
                 Hybrid Bike
               </Link>
               <Link
-                to="/"
+                to="/shop"
                 className="mb-3 flex text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2"
               >
                 Folding Bike
               </Link>
               <Link
-                to="/"
+                to="/shop"
                 className="mb-3 flex text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2"
               >
                 BMX Bike
@@ -50,31 +50,31 @@ const Footer = () => {
               </p>
 
               <Link
-                to="/"
+                to="/about"
                 className="mb-3 flex text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2"
               >
-                Our Services
+                About Us
               </Link>
               <Link
-                to="/"
+                to="/bicycles"
                 className="mb-3 flex text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2"
               >
-                Event Items
+                All Products
               </Link>
               <Link
-                to="/"
+                to="/blogs"
                 className="mb-3 flex text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2"
               >
-                Gallery
+                Blogs
               </Link>
-              <Link
+              {/* <Link
                 to="/"
                 className="mb-3 flex text-sm font-medium text-gray-500 transition hover:text-gray-700 md:mb-2"
               >
                 Privacy
-              </Link>
+              </Link> */}
             </nav>
-            <nav className="col-span-2 md:col-span-1 lg:col-span-2">
+            {/* <nav className="col-span-2 md:col-span-1 lg:col-span-2">
               <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
                 Contact
               </p>
@@ -108,8 +108,8 @@ const Footer = () => {
               >
                 Live Chat
               </Link>
-            </nav>
-            <div className="col-span-3">
+            </nav> */}
+            {/* <div className="col-span-3">
               <p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
                 SUBSCRIBE TO OUR NEWSLETTER
               </p>
@@ -131,7 +131,7 @@ const Footer = () => {
               <p className="text-xs leading-normal text-gray-500">
                 Get the latest updates and news about our service.
               </p>
-            </div>
+            </div> */}
           </div>
           <div className="mt-10 flex flex-col items-start justify-center border-t border-gray-100 pt-5 pb-5 md:flex-row md:items-center">
             <p className="mb-6 text-left text-gray-600 md:mb-0">

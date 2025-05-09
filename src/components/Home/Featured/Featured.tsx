@@ -13,10 +13,14 @@ import PromoSection from '@/pages/Features/PromoSection';
 import BlogTipsSection from '@/pages/Features/BlogTipsSection';
 import NewsletterSubscriptionPage from '@/pages/Features/NewsletterSubscriptionPage';
 import BrandPartnersPage from '@/pages/Features/BrandPartnersPage';
+import { useAppDispatch } from '@/redux/hook';
+import { addToCart } from '@/redux/features/cart/cartSlice';
+
 
 const Featured = () => {
   const { data: bicycles = [], isLoading } = useGetAllBicycleQuery(undefined);
   const [slidesPerView, setSlidesPerView] = useState<number>(1);
+  const dispatch = useAppDispatch();
 
   const featuredBikes = bicycles?.data?.data?.slice(0, 6) || [];
 
@@ -57,8 +61,7 @@ const Featured = () => {
 
       {/*  */}
 
-
-{/*  */}
+      {/*  */}
       <div className="swiper-container relative h-[100%] w-[99%] overflow-hidden">
         <Swiper
           // slidesPerView={4}
@@ -73,24 +76,39 @@ const Featured = () => {
         >
           {featuredBikes.map((bike: Bicycle) => (
             <SwiperSlide key={bike._id}>
-              <div className="cursor-pointer">
-                <div className="group relative h-[80%]">
+              <div className="group flex h-full flex-col rounded-xl bg-white p-4 shadow-md transition-transform duration-300 hover:scale-[1.02]">
+                <div className="relative overflow-hidden rounded-lg bg-gray-100">
                   <img
-                    className="h-70 w-70 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
                     src={bike.img}
-                    alt="Slide 1"
+                    alt={bike.name}
+                    className="h-52 w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                  <Link to={`/bicycles/${bike?._id}`}>
-                    <button className="absolute bottom-2.5 left-1/2 -translate-x-1/2 cursor-pointer rounded-3xl bg-white px-5 py-3 text-sm text-black opacity-0 shadow-md transition-opacity duration-300 ease-in-out group-hover:opacity-[1] hover:bg-black hover:text-white">
-                      View Details
-                    </button>
-                  </Link>
                 </div>
-                <div className="mt-5 w-full text-center">
-                  <h5 className="text-lg capitalize">{bike.name}</h5>
-                  <span className="price mt-2.5 flex items-center justify-center gap-2.5 text-lg text-gray-500">
-                    $ {bike.price}
-                  </span>
+
+                <div className="mt-4 flex flex-col items-center text-center">
+                  <h5 className="mb-1 text-lg font-semibold text-gray-800 capitalize">
+                    {bike.name}
+                  </h5>
+
+                  <div className="mb-1 text-base text-yellow-400">
+                    {'★'.repeat(bike.rating ?? 4)}
+                    {'☆'.repeat(5 - (bike.rating ?? 4))}
+                  </div>
+
+                  <span className="mb-3 text-lg font-bold text-gray-700">${bike.price}</span>
+
+                  <div className="flex w-full gap-2">
+                    <button  onClick={() => dispatch(addToCart(bike))}
+                     className="flex-1 rounded-2xl bg-cyan-600 px-4 py-2 text-sm text-white transition duration-200 hover:bg-cyan-500 hover:text-black">
+                      Add to Cart
+                    </button>
+
+                    <Link to={`/bicycles/${bike._id}`} className="flex-1">
+                      <button className="w-full rounded-2xl bg-cyan-600 px-4 py-2 text-sm text-white transition duration-200 hover:bg-cyan-500 hover:text-black">
+                        View Details
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </SwiperSlide>

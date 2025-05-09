@@ -7,6 +7,7 @@ import { auth, db } from '@/firebase/firebase.init';
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { ChevronDown } from 'lucide-react';
+import { useAppSelector } from '@/redux/hook';
 
 const Categories = [
   'Men',
@@ -28,6 +29,10 @@ const Navbar: React.FC = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [isHoveredCategory, setIsHoveredCategory] = useState(false);
   const navigate = useNavigate();
+
+
+const cartItems = useAppSelector((state) => state.cart.items);
+const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const handleHoverIn = () => {
     setIsHoveredCategory(true);
@@ -164,7 +169,118 @@ const Navbar: React.FC = () => {
         </li>
       </ul>
 
-      <div className="flex items-center">
+      <div className="flex gap-4 items-center">
+
+        <Link to="/checkout" className="relative">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="h-6 w-6 text-gray-800"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M2.25 3h1.636a1.5 1.5 0 011.49 1.356l.79 7.902A4.5 4.5 0 0010.65 16.5h5.7a4.5 4.5 0 004.484-4.242l.366-4.9a1.5 1.5 0 00-1.49-1.608H6.75"
+          />
+        </svg>
+        {totalQuantity > 0 && (
+          <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs text-white">
+            {totalQuantity}
+          </span>
+        )}
+      </Link>
+
+
+        {/* <div>
+          <div className="hidden gap-3 lg:flex">
+            <div className="relative inline-block text-left">
+              <div>
+                <button
+                  type="button"
+                  className="flex h-10 w-10 items-center justify-center rounded-full focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
+                  id="menu-button"
+                  aria-expanded="true"
+                  aria-haspopup="true"
+                  onClick={() => {
+                    const dropdown = document.getElementById('dropdown-menu');
+                    dropdown?.classList.toggle('hidden');
+                  }}
+                >
+                  <img
+                    className="h-10 w-10 rounded-full"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                    alt="User avatar"
+                  />
+                </button>
+              </div>
+
+              <div
+                id="dropdown-menu"
+                className="ring-opacity-5 absolute right-0 z-10 mt-2 hidden w-52 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black focus:outline-none"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="menu-button"
+                tabIndex={-1}
+              >
+                <div className="py-1" role="none">
+                  <Link href="/profile">
+                    <span
+                      className="flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      role="menuitem"
+                    >
+                      {' '}
+                      Profile{' '}
+                      <span className="ml-2 inline-block rounded-full bg-blue-500 px-2 py-0.5 text-xs text-white">
+                        New
+                      </span>
+                    </span>
+                  </Link>
+                  <span
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    {session?.user?.role === 'admin' && (
+                      <Link href="/admin">Admin Dashboard</Link>
+                    )}
+                  </span>
+                  {session?.user?.role === 'user' && (
+                    <span
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      role="menuitem"
+                    >
+                      <Link href="/orders">Track Order</Link>
+                    </span>
+                  )}{' '}
+                  <span
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    Settings
+                  </span>
+                  <span
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    role="menuitem"
+                  >
+                    {session ? (
+                      <button
+                        onClick={() => signOut()}
+                        className="cursor-pointer rounded bg-red-600 px-5 text-white"
+                      >
+                        Logout
+                      </button>
+                    ) : (
+                      <Link href="/login">Login</Link>
+                    )}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> */}
+
         {!isAuthenticated && (
           <Button asChild className="hidden md:block">
             <Link to="/signUp">Sign Up</Link>
@@ -248,6 +364,28 @@ const Navbar: React.FC = () => {
             </Link>
           </li>
         </ul>
+
+        <Link to="/cart" className="relative">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="h-6 w-6 text-gray-800"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M2.25 3h1.636a1.5 1.5 0 011.49 1.356l.79 7.902A4.5 4.5 0 0010.65 16.5h5.7a4.5 4.5 0 004.484-4.242l.366-4.9a1.5 1.5 0 00-1.49-1.608H6.75"
+          />
+        </svg>
+        {totalQuantity > 0 && (
+          <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs text-white">
+            {totalQuantity}
+          </span>
+        )}
+      </Link>
 
         {!isAuthenticated && (
           <Button asChild className="mt-4">

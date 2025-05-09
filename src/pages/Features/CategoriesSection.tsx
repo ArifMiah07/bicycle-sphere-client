@@ -60,7 +60,7 @@ const CategoriesSection = () => {
           loop={true}
           modules={[Navigation]}
         >
-          {categories.map((cat: Bicycle) => (
+          {categories?.map((cat: Bicycle) => (
             <SwiperSlide key={cat._id}>
               <Link to={`/bicycles/${cat._id}`} className="block cursor-pointer">
                 <div className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl">
