@@ -2,24 +2,25 @@ import { toast, Toaster } from 'sonner';
 
 const NewsletterSubscriptionPage = () => {
   // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const email = form.email.value;
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  const form = e.target as HTMLFormElement;
+  const email = (form.elements.namedItem('email') as HTMLInputElement)?.value;
 
-    if(!email){
-      toast.error(`Plz write your email to Subscribe: `);
-    }
+  if (!email) {
+    toast.error(`Plz write your email to Subscribe:`);
+  }
 
-    if (email) {
-      try {
-        console.log(`Subscribed with email: ${email}`);
-        toast.success('Subscribed to the Newsletter Successfully!');
-      } catch (error: any) {
-        toast.error(`Failed to Subscribe: ${error.message}`);
-      }
+  if (email) {
+    try {
+      console.log(`Subscribed with email: ${email}`);
+      toast.success('Subscribed to the Newsletter Successfully!');
+    } catch (error: any) {
+      toast.error(`Failed to Subscribe: ${error.message}`);
     }
-  };
+  }
+};
+
     
 
 

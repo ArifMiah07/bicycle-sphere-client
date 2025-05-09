@@ -52,7 +52,7 @@ export default function ProductsTable() {
       <div className="rounded-md border p-8 text-center">
         <p className="mb-4">No products found. Add your first bicycle product.</p>
         <Button asChild>
-          <Link to="/admin/products/new">Add Product</Link>
+          <Link to="/admin/products/add">Add Product</Link>
         </Button>
       </div>
     );

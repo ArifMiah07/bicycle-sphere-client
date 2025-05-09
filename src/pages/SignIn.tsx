@@ -9,6 +9,13 @@ import { useLocation } from 'react-router';
 import { useState } from 'react';
 import { Eye, EyeClosed, Bike, Facebook, UserCircle, ShieldCheck } from 'lucide-react';
 
+
+interface RegisterFormValues {
+  name: string;
+  email: string;
+  password: string;
+}
+
 const SignIn = () => {
   const { loginUser } = useAuth();
   const [form] = Form.useForm();
@@ -36,7 +43,7 @@ const SignIn = () => {
     });
   };
 
-  const onFinish = async (values) => {
+  const onFinish = async (values : RegisterFormValues) => {
     const { email, password } = values;
     setLoading(true);
 
@@ -65,7 +72,7 @@ const SignIn = () => {
       } else {
         toast.error('User role not found.');
       }
-    } catch (error) {
+    } catch (error:any) {
       console.error(error.message);
       toast.error('Invalid email or password.');
     } finally {

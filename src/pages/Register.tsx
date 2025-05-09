@@ -8,6 +8,13 @@ import { toast } from 'react-toastify';
 import { Eye, EyeClosed, Bike, Facebook } from 'lucide-react';
 import { useState } from 'react';
 
+
+interface RegisterFormValues {
+  name: string;
+  email: string;
+  password: string;
+}
+
 const Register = () => {
   const { createUser } = useAuth();
   const [form] = Form.useForm();
@@ -19,7 +26,7 @@ const Register = () => {
     setShowPassword((prev) => !prev);
   };
 
-  const onFinish = (values) => {
+  const onFinish = (values:RegisterFormValues) => {
     setLoading(true);
     const { email, password, name } = values;
 
