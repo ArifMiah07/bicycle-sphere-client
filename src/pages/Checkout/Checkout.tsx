@@ -14,7 +14,7 @@ const Checkout = () => {
   const orderedProductData: Bicycle = data?.data;
   // console.log(orderedProductData);
   if (!order) {
-    return <p className="p-6">No order found. Please try again.</p>;
+    return <p className="p-6 mt-24 h-full">No order found. Please try again.</p>;
   }
 
   const paymentUrl = location.state?.paymentUrl;
@@ -28,7 +28,7 @@ const Checkout = () => {
   };
 
   return (
-    <div className="mx-auto max-w-lg p-6">
+    <div className="mx-auto border border-red-500 mt-24 max-w-lg p-6 ">
       <h2 className="mb-4 text-2xl font-semibold">Confirm Your Order</h2>
       <div className="rounded-lg border p-4 shadow">
         <p>

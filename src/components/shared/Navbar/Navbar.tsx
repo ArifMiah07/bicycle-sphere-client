@@ -6,12 +6,50 @@ import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from '@/firebase/firebase.init';
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import { ChevronDown } from 'lucide-react';
+
+const Categories = [
+  'Men',
+  'Women',
+  'Kids',
+  'Commuter',
+  'Sport',
+  'Professional',
+  'Casual',
+  'Urban Series',
+  'Premium',
+  'Budget',
+];
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [role, setRole] = useState<string | null>(null);
+  const [isSticky, setIsSticky] = useState(false);
+  const [isHoveredCategory, setIsHoveredCategory] = useState(false);
   const navigate = useNavigate();
+
+  const handleHoverIn = () => {
+    setIsHoveredCategory(true);
+  };
+
+  const handleHoverOut = () => {
+    setIsHoveredCategory(false);
+  };
+
+  // Handle scroll for sticky navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -19,12 +57,12 @@ const Navbar: React.FC = () => {
         setIsAuthenticated(true);
 
         // Fetch role from Firestore
-        const userDocRef = doc(db, 'users', user.uid); // assumes user data is in "users" collection
+        const userDocRef = doc(db, 'users', user.uid); //
         const userDocSnap = await getDoc(userDocRef);
 
         if (userDocSnap.exists()) {
           const userData = userDocSnap.data();
-          setRole(userData.role); // expects "role" field to be in the user document
+          setRole(userData.role); //
         }
       } else {
         setIsAuthenticated(false);
@@ -51,7 +89,9 @@ const Navbar: React.FC = () => {
   const avatarLink = role === 'admin' ? '/admin/dashboard' : '/user/udashboard';
 
   return (
-    <nav className="relative z-10 flex items-center justify-between p-5 shadow-lg">
+    <nav
+      className={`fixed top-0 right-0 left-0 z-50 w-full ${isSticky ? 'bg-white shadow-md' : 'bg-white'} flex items-center justify-between p-5 shadow-lg transition-all duration-300`}
+    >
       <Link to="/">
         <img
           className="h-[50px] w-45 md:w-[250px]"
@@ -68,11 +108,35 @@ const Navbar: React.FC = () => {
         </li>
         <li>
           <Link
-            to="/allBicycles"
+            to="/bicycles"
             className="rounded-md px-2 py-1 font-medium text-black hover:bg-gray-100"
           >
             All Bicycles
           </Link>
+        </li>
+        <li className="relative" onMouseEnter={handleHoverIn} onMouseLeave={handleHoverOut}>
+          <Link to="/bicycles">
+            <span className="flex items-center gap-[2px]">
+              <span className='rounded-md font-medium text-black hover:bg-gray-100'>Category</span> <ChevronDown />
+            </span>{' '}
+          </Link>
+          {isHoveredCategory && (
+            <div
+              className={`absolute right-0 left-0 z-10 w-full text-black ${isHoveredCategory} ? 'bg-blue-500' : 'bg-gray-300'`}
+            >
+              <div className="w-fit border border-gray-300 bg-white p-4">
+                {Categories.map((category: string, index: number) => (
+                  <li className="text-normal" key={index}>
+                    <Link to={'/bicycles'}>
+                      <span className="cursor-pointer hover:font-medium hover:text-gray-800 hover:underline">
+                        {category}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </div>
+            </div>
+          )}
         </li>
         <li>
           <Link
@@ -145,10 +209,18 @@ const Navbar: React.FC = () => {
           </li>
           <li>
             <Link
-              to="/allBicycles"
+              to="/bicycles"
               className="rounded-md px-2 py-1 text-sm font-medium text-black hover:bg-gray-100"
             >
               All Bicycles
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/bicycles"
+              className="rounded-md px-2 py-1 text-sm font-medium text-black hover:bg-gray-100"
+            >
+              Category
             </Link>
           </li>
           <li>

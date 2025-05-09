@@ -1,6 +1,6 @@
 const AboutUs = () => {
   return (
-    <div className="space-y-16 bg-white px-4 py-12 text-gray-800 md:px-16">
+    <div className="space-y-16 bg-white px-4 py-12 text-gray-800 md:px-16 mt-24">
       <section className="space-y-4 text-center">
         <h1 className="text-3xl font-bold text-cyan-700 md:text-5xl">🚴‍♂️ About Us</h1>
         <p className="text-xl font-medium text-gray-600 md:text-2xl">Pedal. Explore. Repeat.</p>

@@ -67,7 +67,7 @@ export default function BicycleDetails() {
               We couldn't load the details for this bicycle. Please try again.
             </p>
             <Button asChild variant="outline">
-              <Link to="/allBicycles">Back to Bicycles</Link>
+              <Link to="/bicycles">Back to Bicycles</Link>
             </Button>
           </div>
         </Card>
@@ -82,7 +82,7 @@ export default function BicycleDetails() {
       {/* Breadcrumb */}
       <div className="mb-6">
         <Button variant="ghost" size="sm" asChild className="text-muted-foreground mb-2 pl-0">
-          <Link to="/allBicycles" className="flex items-center">
+          <Link to="/bicycles" className="flex items-center">
             <ChevronLeft className="mr-1 h-4 w-4" />
             Back to Bicycles
           </Link>
@@ -92,7 +92,7 @@ export default function BicycleDetails() {
             Home
           </Link>
           <span className="mx-2">/</span>
-          <Link to="/allBicycles" className="hover:text-foreground">
+          <Link to="/bicycles" className="hover:text-foreground">
             Bicycles
           </Link>
           <span className="mx-2">/</span>

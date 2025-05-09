@@ -15,7 +15,7 @@ const Order = () => {
   return isLoading ? (
     <Skeleton />
   ) : (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto mt-24 p-6">
       <h2 className="mb-4 text-2xl font-bold">All Orders</h2>
 
       {/* Check if no orders found */}

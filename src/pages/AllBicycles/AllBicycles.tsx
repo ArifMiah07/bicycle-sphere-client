@@ -69,7 +69,7 @@ export default function AllBicycles() {
   const totalProducts = bicycles?.data?.meta?.total;
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 mt-24">
       {/* mbl Drawer - < sm only */}
       <div className="mb-4 flex md:hidden">
         <Drawer open={open} onOpenChange={setOpen}>

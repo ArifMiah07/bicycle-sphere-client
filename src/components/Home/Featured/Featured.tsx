@@ -46,7 +46,7 @@ const Featured = () => {
           Best Selling Bicycles
         </h3>
         <Button asChild>
-          <Link to="/allBicycles">View All</Link>
+          <Link to="/bicycles">View All</Link>
         </Button>
       </div>
 

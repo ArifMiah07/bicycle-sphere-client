@@ -28,7 +28,7 @@ const menuItems = [
 
 const UserDashBoard = () => {
   return (
-    <div className="mt-1 h-[500px]">
+    <div className="mt-24 h-[500px]">
       <Layout className="h-full">
         <Sider width={200} className="site-layout-background">
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
