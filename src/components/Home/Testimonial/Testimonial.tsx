@@ -65,18 +65,15 @@ const testimonials = [
 
 const Testimonial = () => {
   return (
-    <div className="relative mx-auto max-w-5xl py-9">
-      <h2 className="mb-4 text-center text-4xl italic">
-        See what our satisfied customers have to say.
+    <div className="relative mx-auto w-[100%] bg-gradient-to-br from-[#f9f9fc] to-[#e4f0ff] px-4 py-20">
+      <h2 className="mb-12 text-center text-4xl font-bold text-gray-800 italic">
+        See what our happy riders say
       </h2>
       <Swiper
         modules={[Autoplay, Pagination]}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        slidesPerView={'auto'}
-        spaceBetween={6}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        slidesPerView="auto"
+        spaceBetween={24}
         centeredSlides={true}
         loop={true}
         pagination={{
@@ -85,27 +82,26 @@ const Testimonial = () => {
         }}
       >
         {testimonials.map((testimonial, index) => (
-          <SwiperSlide
-            key={index}
-            className="swiper-slide my-5 w-auto max-w-[330px] flex-shrink-0 transition-transform duration-300"
-          >
-            <div className="relative mx-5 h-full max-w-[330px] cursor-pointer rounded-2xl bg-white p-7 shadow-[0_4px_8px_rgba(0,0,0,0.7)]">
-              <div className="flex w-full flex-col items-center text-center">
-                <div className="stars text-2xl text-[#f1b00f]">
+          <SwiperSlide key={index} className="w-auto max-w-[350px] flex-shrink-0">
+            <div className="group relative mx-4 rounded-3xl bg-white/20 p-6 shadow-lg backdrop-blur-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl">
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-4 text-2xl text-yellow-400 drop-shadow-sm">
                   {'★'.repeat(testimonial.rating)}
                   {'☆'.repeat(5 - testimonial.rating)}
                 </div>
-                <p className="mt-6 mb-7 text-xs font-medium text-[#696b76] italic md:text-lg">
-                  {testimonial.review}
-                </p>
-                <img className="size-20 rounded-full" src={testimonial.image} alt="avatar" />
-                <h4 className="text-base font-bold text-gray-500 md:text-lg">{testimonial.name}</h4>
-                <h6 className="text-[10px] font-medium text-gray-700 md:text-sm">Cycle Sphere</h6>
+                <p className="mb-5 text-sm text-gray-800 italic">“{testimonial.review}”</p>
+                <img
+                  className="mb-4 size-20 rounded-full border-4 border-white shadow-md transition-all duration-300 group-hover:ring-4 group-hover:ring-yellow-300"
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                />
+                <h4 className="text-lg font-semibold text-gray-700">{testimonial.name}</h4>
+                <span className="text-xs text-gray-500">Cycle Sphere</span>
               </div>
             </div>
           </SwiperSlide>
         ))}
-        <div className="swiper-pagination" />
+        <div className="swiper-pagination mt-8" />
       </Swiper>
     </div>
   );

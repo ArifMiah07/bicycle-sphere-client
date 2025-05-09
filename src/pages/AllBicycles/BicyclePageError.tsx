@@ -10,7 +10,7 @@ export default function BicyclePageError({ error, reset }: { error: Error; reset
   }, [error]);
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mt-24 mx-auto p-4">
       <Card className="mx-auto max-w-md p-8 text-center">
         <div className="flex flex-col items-center space-y-4">
           <div className="rounded-full bg-red-100 p-3">

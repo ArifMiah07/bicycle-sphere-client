@@ -25,7 +25,7 @@
   padding-top: 20px;
 }
 
-.swiper-pagination-bullet {
+/* .swiper-pagination-bullet {
   background: gray;
   opacity: 1;
 }
@@ -35,4 +35,16 @@
   border: 2px solid cyan;
   width: 10px;
   height: 10px;
+} */
+
+.swiper-pagination-bullet {
+  background: #ccc;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #f1b00f;
+  width: 20px;
+  border-radius: 10px;
 }

@@ -56,7 +56,7 @@ export default function BicycleDetails() {
 
   if (error || !data?.data) {
     return (
-      <div className="mx-auto max-w-6xl p-6">
+      <div className="mx-auto mt-24 max-w-6xl p-6">
         <Card className="p-8 text-center">
           <div className="flex flex-col items-center justify-center space-y-4">
             <div className="rounded-full bg-red-100 p-3">

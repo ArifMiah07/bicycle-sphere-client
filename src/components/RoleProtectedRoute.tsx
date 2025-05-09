@@ -12,7 +12,7 @@ const RoleProtectedRoute: React.FC<RoleProtectedRouteProps> = ({ children, allow
   const location = useLocation();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className='mt-24'>Loading...</div>;
   }
 
   // If not logged in

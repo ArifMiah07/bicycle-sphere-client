@@ -8,6 +8,11 @@ import { useGetAllBicycleQuery } from '@/redux/api/productApi';
 import { Bicycle } from '@/types';
 import { Navigation } from 'swiper/modules';
 import { useEffect, useState } from 'react';
+import CategoriesSection from '@/pages/Features/CategoriesSection';
+import PromoSection from '@/pages/Features/PromoSection';
+import BlogTipsSection from '@/pages/Features/BlogTipsSection';
+import NewsletterSubscriptionPage from '@/pages/Features/NewsletterSubscriptionPage';
+import BrandPartnersPage from '@/pages/Features/BrandPartnersPage';
 
 const Featured = () => {
   const { data: bicycles = [], isLoading } = useGetAllBicycleQuery(undefined);
@@ -41,7 +46,7 @@ const Featured = () => {
   }
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center bg-white font-sans">
-      <div className="mb-2.5 flex w-[80%] justify-between">
+      <div className="mb-2.5 flex w-full justify-between">
         <h3 className="text-4xl font-bold text-cyan-700 capitalize italic">
           Best Selling Bicycles
         </h3>
@@ -50,7 +55,11 @@ const Featured = () => {
         </Button>
       </div>
 
-      <div className="swiper-container relative h-[100%] w-[80%] overflow-hidden">
+      {/*  */}
+
+
+{/*  */}
+      <div className="swiper-container relative h-[100%] w-[99%] overflow-hidden">
         <Swiper
           // slidesPerView={4}
           slidesPerView={slidesPerView}
@@ -114,6 +123,14 @@ const Featured = () => {
           </svg>
         </button>
       </div>
+
+      {/*  */}
+
+      <CategoriesSection />
+      <PromoSection />
+      <BlogTipsSection />
+      <NewsletterSubscriptionPage />
+      <BrandPartnersPage />
     </div>
   );
 };

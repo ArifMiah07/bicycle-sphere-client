@@ -1,5 +1,15 @@
 import { UserCredential } from 'firebase/auth';
 
+
+
+export type BlogPost = {
+  slug: string;
+  title: string;
+  cover: string;
+  date: string;
+  content: string[];
+};
+
 export type BicycleType = 'Mountain' | 'Road' | 'Hybrid' | 'BMX' | 'Electric';
 export type BicycleCategory =
   | 'Men'

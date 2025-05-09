@@ -29,6 +29,8 @@ import AllOrders from './pages/AllOrders/AllOrders.tsx';
 import Admin from './components/Dashboard/Admin.tsx';
 import PasswordUpdate from './components/Dashboard/PasswordUpdate.tsx';
 import UserDash from './components/Dashboard/UserDash.tsx';
+import BlogDetail from './components/Blog/BlogDetail.tsx';
+import Blogs from './pages/Features/Blogs.tsx';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,11 @@ const router = createBrowserRouter([
       { path: '/', element: <Home /> },
       { path: '/bicycles', element: <AllBicycles /> },
       { path: '/bicycles/:id', element: <BicycleDetails /> },
+      {
+        path:'/blogs',
+        element: <Blogs />,
+      },
+      { path: "/blogs/:slug", element: <BlogDetail />},
       {
         path: '/checkout',
         element: (

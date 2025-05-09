@@ -71,7 +71,7 @@ const AdminDashboard: React.FC = () => {
     }
   }, [isAdmin]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className='mt-24'>Loading...</div>;
   if (!isAdmin) return null; // If not admin, return null
 
   return (

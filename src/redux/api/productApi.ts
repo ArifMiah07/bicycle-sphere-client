@@ -84,29 +84,3 @@ export const {
   useUpdateBicycleMutation,
   useDeleteBicycleMutation,
 } = productApi;
-
-// web API
-//https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
-/**
- *
- */
-
-// traditional
-/**
-let url = '?';
-
-if (params?.searchTerm) url += `searchTerm=${params.searchTerm}&`;
-if (params?.brand) url += `brand=${params.brand}&`;
-if (params?.category) url += `category=${params.category}&`;
-if (params?.model) url += `model=${params.model}&`;
-if (params?.minPrice) url += `minPrice=${params.minPrice}&`;
-if (params?.maxPrice) url += `maxPrice=${params.maxPrice}&`;
-if (params?.inStock !== undefined) url += `inStock=${params.inStock}&`;
-
-// Remove last '&' if it exists
-if (url.endsWith('&')) {
-  url = url.slice(0, -1);
-}
-
-return url === '?' ? '/' : url;
- */

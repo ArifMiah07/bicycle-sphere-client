@@ -140,6 +140,14 @@ const Navbar: React.FC = () => {
         </li>
         <li>
           <Link
+            to="/blogs"
+            className="rounded-md px-2 py-1 font-medium text-black hover:bg-gray-100"
+          >
+            Blogs
+          </Link>
+        </li>
+        <li>
+          <Link
             to="/aboutUs"
             className="rounded-md px-2 py-1 font-medium text-black hover:bg-gray-100"
           >
