@@ -1,9 +1,9 @@
-# 🚲 Cycle-Sphere — Full Stack Bicycle Management Platform (Team Project)
+# 🚲 Cycle-Sphere — Full Stack Bicycle Management Platform (updated)
 
 A complete full-stack bicycle showcase and management application designed to deliver a dynamic user experience using raw React on the frontend and a robust backend setup.
 
-🌐 **Live Site:** [cycle-sphere.vercel.app](https://cycle-sphere.vercel.app)  
-📁 **Repo:** [`bicycle-sphere-client`](https://github.com/Faey2023/cycle-sphere)
+🌐 **Live Site:** [cycle-sphere.vercel.app](https://bicycle-sphere-new.vercel.app)  
+📁 **Repo:** [`bicycle-sphere-client`](https://github.com/ArifMiah07/bicycle-sphere-client)
 
 ---
 
