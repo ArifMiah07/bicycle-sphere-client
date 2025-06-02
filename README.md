@@ -7,6 +7,7 @@ A complete full-stack bicycle showcase and management application designed to de
 📁 **backend Repo:** [`bicycle-sphere-backend`](https://github.com/ArifMiah07/bicycle-sphere-backend)
 
 (this project was a team project)
+
 🌐 **Live Site:** [cycle-sphere.vercel.app](https://bicycle-sphere-new.vercel.app) 
 📁 **frontend Repo:** [`cycle-sphere-client`](https://github.com/Faey2023/cycle-sphere)
 📁 **backend Repo:** [`cycle-sphere-backend`](https://github.com/afrinchowa/bicycle_Pedal_Paradise)
