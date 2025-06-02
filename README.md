@@ -1,9 +1,16 @@
-# 🚲 Cycle-Sphere — Full Stack Bicycle Management Platform (updated)
+# 🚲 Cycle-Sphere — Full Stack Bicycle Management Platform
 
 A complete full-stack bicycle showcase and management application designed to deliver a dynamic user experience using raw React on the frontend and a robust backend setup.
 
-🌐 **Live Site:** [cycle-sphere.vercel.app](https://bicycle-sphere-new.vercel.app)  
-📁 **Repo:** [`bicycle-sphere-client`](https://github.com/ArifMiah07/bicycle-sphere-client)
+🌐 **Live Site:** [bicycle-sphere.vercel.app](https://bicycle-sphere-new.vercel.app) 
+<!--📁 **Repo:** [`bicycle-sphere-client`](https://github.com/ArifMiah07/bicycle-sphere-client)-->
+📁 **backend Repo:** [`bicycle-sphere-backend`](https://github.com/ArifMiah07/bicycle-sphere-backend)
+
+(this project was a team project)
+🌐 **Live Site:** [cycle-sphere.vercel.app](https://bicycle-sphere-new.vercel.app) 
+📁 **frontend Repo:** [`cycle-sphere-client`](https://github.com/Faey2023/cycle-sphere)
+📁 **backend Repo:** [`cycle-sphere-backend`](https://github.com/afrinchowa/bicycle_Pedal_Paradise)
+
 
 ---
 
@@ -18,15 +25,43 @@ A complete full-stack bicycle showcase and management application designed to de
 ### 🔹 Frontend
 - **Library**: React.js (no framework)
 - **Language**: JavaScript
-- **Styling**: Tailwind CSS / CSS Modules (if applicable)
-- **State Management**: Context API or Redux (if implemented)
+- **Styling**: Tailwind CSS / CSS Modules
+- **State Management**: Context API
 
 ### 🔹 Backend
 - **Runtime**: Node.js + Express
 - **Language**: TypeScript
 - **Database**: MongoDB with Mongoose
 - **Authentication**: JWT
-- **Deployment**: Vercel (frontend), Render/Heroku/etc (backend)
+- **Deployment**: Vercel (frontend), Render/Heroku (backend)
+
+---
+
+## 📦 Features
+
+### 🔍 Search and Browse
+- Advanced filtering for cycles
+- View detailed cycle information
+
+### 🛒 E-commerce Functionality
+- Add to cart and manage cycle list
+- Order management & history
+
+### 🛡️ Security & Authentication
+- Secure user authentication and protected routes
+- JWT-based authorization
+
+### 🎨 User Experience
+- Form validation and error handling
+- Responsive and mobile-friendly design
+
+### ⚙️ Admin Management
+- Admin CRUD interface for cycles
+- Admin tools to manage cycle inventory
+
+### 👤 User Features
+- User profiles and dashboards
+- SSLCommerz integration for purchases
 
 ---
 
@@ -39,47 +74,21 @@ To run the project locally, follow these steps:
 git clone https://github.com/Faey2023/cycle-sphere
 ```
 
-2. **Navigate into the project directory:**
-
+### 2. Navigate into the project directory
 ```bash
-cd medi-sphere
+cd cycle-sphere
 ```
 
-3. **Install frontend & backend dependencies:**
-
+### 3. Install frontend & backend dependencies
 ```bash
 npm install
 ```
 
-4. **Start the development server:**
-
+### 4. Start the development server
 ```bash
 npm run dev
 ```
+
 The app should now be running at http://localhost:3000.
 
-## 📦 Features
-### 🔍 Search and browse cycles with advanced filtering
-
-### 📋 View detailed cycle information
-
-### 🛒 Add to cart or manage cycle list (if e-commerce features are included)
-
-### 🛡️ Secure user authentication and protected routes
-
-### 🧪 Form validation and error handling
-
-### 📱 Responsive and mobile-friendly design
-
-### ⚙️ Admin tools (if implemented) to manage cycle inventory
-
-### User profiles and dashboards
-
-### Order management & history
-
-### Admin CRUD interface for cycles
-
-### SSLCommerz integration for purchases
-
-### Prescription uploads and verification
-
+---
